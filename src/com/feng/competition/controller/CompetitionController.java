@@ -30,7 +30,7 @@ public class CompetitionController {
 
   @RequestMapping(params = "gets", method = RequestMethod.GET)
   @ResponseBody
-  public String save(HttpServletRequest request, Page page) {
+  public String getCompetition(HttpServletRequest request, Page page) {
     AjaxJson j = new AjaxJson();
     j.setObj(competitionService.getAllCompetitions(page));
     List<Competition> list = (List<Competition>) j.getObj();
@@ -41,7 +41,7 @@ public class CompetitionController {
 
   @RequestMapping(params = "image", method = RequestMethod.GET)
   @ResponseBody
-  public void save(HttpServletRequest request, HttpServletResponse response, String name)
+  public void getImage(HttpServletRequest request, HttpServletResponse response, String name)
       throws IOException {
     String url = "c:/code/fengge/img/" + name + ".jpg";
     FileInputStream inputStream = new FileInputStream(url);
@@ -80,7 +80,17 @@ public class CompetitionController {
       throws IOException {
     AjaxJson j = new AjaxJson();
     j.setObj(competitionService.getAllShous());
-    List<Competition> list = (List<Competition>) j.getObj();
+    List<Shou> list = (List<Shou>) j.getObj();
+    String str = "(";
+    for (Shou s : list) {
+      str += s.getCid() + ",";
+    }
+    if (list.size() == 0) {
+      str = "";
+      return null;
+    } else {
+      str = str.substring(0, str.length() - 1) + ")";
+    }
 
     String paramStr = JSONObject.fromObject(j).toString();
     return paramStr;
