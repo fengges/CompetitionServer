@@ -92,7 +92,7 @@ public class CompetitionController {
       str = str.substring(0, str.length() - 1) + ")";
     }
 
-    String paramStr = JSONObject.fromObject(j).toString();
+    String paramStr = JSONObject.fromObject(list).toString();
     return paramStr;
   }
 }
