@@ -43,7 +43,7 @@ public class CompetitionController {
   @ResponseBody
   public void save(HttpServletRequest request, HttpServletResponse response, String name)
       throws IOException {
-    String url = "E:/data/img/" + name + ".jpg";
+    String url = "c:/code/fengge/img/" + name + ".jpg";
     FileInputStream inputStream = new FileInputStream(url);
     int i = inputStream.available();
     // byte数组用于存放图片字节数据
