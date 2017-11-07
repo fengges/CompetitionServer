@@ -78,4 +78,18 @@ public class CompetitionServiceImpl implements CompetitionService {
     HibernateUtil.closeSession();
     return list;
   }
+
+  @Override
+  public List<Competition> getCompetitionsById(String ids) {
+    Session session = HibernateUtil.currentSession();
+
+    String hql = " from Competition where id in " + ids + " order by id desc ";
+    System.out.println(hql);
+    Query query = session.createQuery(hql);
+    // query.setFirstResult(0);
+    // query.setMaxResults(5);
+    List<Competition> list = query.list();
+    HibernateUtil.closeSession();
+    return list;
+  }
 }

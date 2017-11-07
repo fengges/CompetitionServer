@@ -13,4 +13,6 @@ public interface CompetitionService {
   public void saveShou(Shou shou);
 
   public List<Shou> getAllShous();
+
+  public List<Competition> getCompetitionsById(String id);
 }
