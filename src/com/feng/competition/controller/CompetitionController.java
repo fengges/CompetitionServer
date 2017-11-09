@@ -91,8 +91,8 @@ public class CompetitionController {
     } else {
       str = str.substring(0, str.length() - 1) + ")";
     }
-
-    String paramStr = JSONObject.fromObject(list).toString();
+    j.setObj(competitionService.getCompetitionsById(str));
+    String paramStr = JSONObject.fromObject(j).toString();
     return paramStr;
   }
 }
