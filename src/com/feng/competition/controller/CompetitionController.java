@@ -76,7 +76,7 @@ public class CompetitionController {
 
   @RequestMapping(params = "getshou", method = RequestMethod.GET)
   @ResponseBody
-  public String getShou(HttpServletRequest request, HttpServletResponse response)
+  public String getShou(HttpServletRequest request, HttpServletResponse response, Page page)
       throws IOException {
     AjaxJson j = new AjaxJson();
     j.setObj(competitionService.getAllShous());
@@ -91,7 +91,7 @@ public class CompetitionController {
     } else {
       str = str.substring(0, str.length() - 1) + ")";
     }
-    j.setObj(competitionService.getCompetitionsById(str));
+    j.setObj(competitionService.getCompetitionsById(str, page));
     String paramStr = JSONObject.fromObject(j).toString();
     return paramStr;
   }
