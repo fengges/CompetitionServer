@@ -4,17 +4,16 @@
 
 <hibernate-mapping package="com.feng.competition.bean">
 
-	<class name="Competition" table="cr_competition">
+	<class name="Meeting" table="cr_meeting">
 		<id name="id" column="id">
 			<generator class="native"></generator>
 		</id>	
 		<property name="name" column="name"></property>
-		<property name="industry" column="class"></property>
+		<property name="industry" column="industry"></property>
 		<property name="city" column="city"></property>	
 		<property name="pic" column="pic"></property>
 		<property name="url" column="url"></property>
-		<property name="content" column="info"></property>
-		<property name="recommend" column="recommend"></property>
+		<property name="content" column="content"></property>
 	</class>
 
 </hibernate-mapping>

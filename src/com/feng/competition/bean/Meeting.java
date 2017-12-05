@@ -1,6 +1,6 @@
 package com.feng.competition.bean;
 
-public class Competition {
+public class Meeting {
   private int id;
   private String name;
   private String industry;
@@ -8,15 +8,6 @@ public class Competition {
   private String pic;
   private String url;
   private String content;
-  private String recommend;
-
-  public String getRecommend() {
-    return recommend;
-  }
-
-  public void setRecommend(String recommend) {
-    this.recommend = recommend;
-  }
 
   public String getUrl() {
     return url;

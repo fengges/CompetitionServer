@@ -15,4 +15,6 @@ public interface CompetitionService {
   public List<Shou> getAllShous();
 
   public List<Competition> getCompetitionsById(String id, Page page);
+
+  public List<Competition> getMeetingsById(String id);
 }

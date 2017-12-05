@@ -22,8 +22,10 @@
     <property name="dialect">
         org.hibernate.dialect.MySQL5Dialect
     </property>
+    <mapping resource="com/feng/competition/bean/Meeting.hbm.xml" />
     <mapping resource="com/feng/competition/bean/Competition.hbm.xml" />
     <mapping resource="com/feng/competition/bean/shou.hbm.xml" />
+
 </session-factory>
 
 </hibernate-configuration>

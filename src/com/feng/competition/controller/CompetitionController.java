@@ -39,11 +39,23 @@ public class CompetitionController {
     return paramStr;
   }
 
+  @RequestMapping(params = "getmeetings", method = RequestMethod.GET)
+  @ResponseBody
+  public String getMeetings(HttpServletRequest request, HttpServletResponse response, String ids)
+      throws IOException {
+    AjaxJson j = new AjaxJson();
+    j.setObj(competitionService.getMeetingsById("(" + ids + ")"));
+    List<Competition> list = (List<Competition>) j.getObj();
+
+    String paramStr = JSONObject.fromObject(j).toString();
+    return paramStr;
+  }
+
   @RequestMapping(params = "image", method = RequestMethod.GET)
   @ResponseBody
   public void getImage(HttpServletRequest request, HttpServletResponse response, String name)
       throws IOException {
-    String url = "c:/code/fengge/img/" + name + ".jpg";
+    String url = "E:/data/img/" + name + ".jpg";
     FileInputStream inputStream = new FileInputStream(url);
     int i = inputStream.available();
     // byte数组用于存放图片字节数据
